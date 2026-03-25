@@ -66,10 +66,11 @@ export default function ItemForm() {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="item-name" className="block text-sm font-medium text-gray-700 mb-1">
               Item Name *
             </label>
             <input
+              id="item-name"
               type="text"
               required
               value={form.name}
@@ -81,10 +82,11 @@ export default function ItemForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="item-category" className="block text-sm font-medium text-gray-700 mb-1">
                 Category *
               </label>
               <select
+                id="item-category"
                 value={form.category}
                 onChange={(e) => handleChange('category', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -95,10 +97,11 @@ export default function ItemForm() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="item-quantity" className="block text-sm font-medium text-gray-700 mb-1">
                 Quantity *
               </label>
               <input
+                id="item-quantity"
                 type="number"
                 min="1"
                 required
@@ -111,10 +114,11 @@ export default function ItemForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="item-condition" className="block text-sm font-medium text-gray-700 mb-1">
                 Condition
               </label>
               <select
+                id="item-condition"
                 value={form.condition}
                 onChange={(e) => handleChange('condition', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -125,10 +129,11 @@ export default function ItemForm() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="item-purchase-date" className="block text-sm font-medium text-gray-700 mb-1">
                 Purchase Date
               </label>
               <input
+                id="item-purchase-date"
                 type="date"
                 value={form.purchaseDate}
                 onChange={(e) => handleChange('purchaseDate', e.target.value)}
@@ -138,10 +143,11 @@ export default function ItemForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="item-description" className="block text-sm font-medium text-gray-700 mb-1">
               Description / Notes
             </label>
             <textarea
+              id="item-description"
               value={form.description}
               onChange={(e) => handleChange('description', e.target.value)}
               rows={3}
