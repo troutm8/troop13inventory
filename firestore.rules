@@ -1,0 +1,38 @@
+rules_version = '2';
+
+// Firestore Security Rules for Troop 13 Gear Inventory
+// Deploy with: firebase deploy --only firestore:rules
+//
+// These rules require authentication for all reads and writes.
+// Any authenticated troop member can read and write all data.
+// Adjust as needed if you want role-based access (e.g., admin-only deletes).
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper: request is from an authenticated user
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Items collection
+    match /items/{itemId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // Trips collection
+    match /trips/{tripId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // Checkouts collection
+    match /checkouts/{checkoutId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // Activity log collection
+    match /activityLog/{entryId} {
+      allow read, write: if isAuthenticated();
+    }
+  }
+}
